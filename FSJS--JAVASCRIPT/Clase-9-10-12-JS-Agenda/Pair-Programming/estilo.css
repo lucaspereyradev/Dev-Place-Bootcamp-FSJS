@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+th {
+    padding: 5px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: black;
+}
+td {
+    padding: 5px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.focus:focus {
+    box-shadow: none;
+}

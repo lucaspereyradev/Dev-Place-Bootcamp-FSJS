@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #000;
+}
+
+.navbar-ul {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-li {
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.navbar-li a {
+    color: #fff;
+    width: 200px;
+    padding: 0.5rem;
+    text-align: center;
+    transition: all 0.5s ease-out;
+}
+
+.navbar-li a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* ABOUT US */
+#aboutUs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content p {
+    margin: 1rem 27rem;
+}
+
+/* SERVICES */
+#section-services {
+    margin: 1rem 27rem;
+}
+
+.content-services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards-services {
+    display: flex;
+    margin: 1rem;
+    width: 780pt;
+    justify-content: space-between;
+}
+
+.card-services {
+    background-color: black;
+    color: #fff;
+    padding: 35px;
+    margin: 0.5rem;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.card-services h3 {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+.card-services:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* FORM */
+#section-contact {
+    margin: 1rem;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+}
+
+.contact form {
+    display: grid;
+    width: 400pt;
+    grid-template-columns: 200pt 200pt;
+    grid-template-rows: 40pt 80pt 35pt;
+}
+
+.contact form input {
+    padding: 10px;
+    margin: 0.5rem;
+}
+
+.contact form textarea {
+    padding: 10px;
+    margin: 0.5rem;
+    grid-row: 2;
+    grid-column: 1 / 3;
+    resize: none;
+}
+
+.btn {
+    margin: 0.5rem;
+    grid-row: 3;
+    grid-column: 1 / 3;
+}
+
+/* NUESTROS PARTNERS */
+.images {
+    margin: 13rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.images div {
+    margin: 40px;
+    width: 30vw;
+    height: 15vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    align-self: center;
+    justify-self: center;
+}
+
+.devPlace {
+    background-image: url(assets/devplace.png);
+}
+
+.aticma {
+    background-image: url(assets/aticmalogo.png);
+}
+
+.aquarius {
+    background-image: url(assets/aquariuslogo.png);
+}
+
+.coca {
+    background-image: url(assets/coca.png);
+}
+
+/* MEDIAQUERY */
+@media (max-width: 880px) {
+    .navbar-ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .images {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .cards-services {
+        flex-direction: column;
+    }
+}

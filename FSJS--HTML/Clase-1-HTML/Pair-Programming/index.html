@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>OverStar</title>
+    </head>
+    <body>
+        <!-- CONSIGNAS -->
+        <!-- 1. Crear Banner y Form de Alta de Usuario -->
+        <!-- 2. Crear tabla de planes y sección Sobre la empresa mas detallada -->
+        <!-- 3. Crear Form de Contacto -->
+
+        <!-- Rodolfo Nahuel Kubin -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#createUser">Darse de alta</a></li>
+                    <li><a href="#plans">Planes</a></li>
+                    <li><a href="#aboutUs">Sobre nosotros</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <h2>OverStar</h2>
+            </nav>
+            <div>
+                <img src="assets/bienvenida.png" alt="Imagen Bienvenida" width="1920px" />
+            </div>
+        </header>
+        <!-- Rodolfo Nahuel Kubin -->
+
+        <!-- Lucas Pereyra -->
+        <section id="createUser">
+            <div>
+                <form>
+                    <fieldset>
+                        <legend>Alta de Usuario</legend>
+                        <input type="text" id="nombre" placeholder="Ingrese su nombre" required />
+                        <br />
+                        <input type="text" id="apellido" placeholder="Ingrese su apellido" required />
+                        <br />
+                        <input type="text" id="numero-telefono" placeholder="Ingrese su número de telefono" required />
+                        <br />
+                        <input type="email" id="email" placeholder="Ingrese su email" required />
+                        <br />
+                        <input type="number" id="dni" placeholder="DNI" required />
+                        <br />
+                        <label for="select">Ciudad donde reside</label>
+                        <select name="select" id="select">
+                            <option value="none" selected>Ninguno</option>
+                            <option value="MardelPlata">Mar del Plata</option>
+                            <option value="Miramar">Miramar</option>
+                            <option value="Chapadmalal">Chapadmalal</option>
+                            <option value="SantaClara">Santa Clara del Mar</option>
+                            <option value="MardeCobo">Mar de Cobo</option>
+                            <option value="MarChiquita">Mar Chiquita</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <br /><br />
+                        <label><b>Plan al que quieres subscribirte:</b></label>
+                        <br />
+                        <label for="plan-1">Plan de 50mb</label>
+                        <input type="radio" name="plan" id="plan-1" />
+                        <br />
+                        <label for="plan-2">Plan de 100mb</label>
+                        <input type="radio" name="plan" id="plan-2" value="100" />
+                        <br />
+                        <label for="plan-3">Plan de 200mb</label>
+                        <input type="radio" name="plan" id="plan-3" value="200" />
+                        <br /><br />
+                        <button>Subscribirse</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+        <!-- Lucas Pereyra -->
+        <br />
+        <!-- Lucas Pereyra y Rodolfo Nahuel Kubin -->
+        <section id="plans">
+            <table>
+                <tr>
+                    <th>Plan</th>
+                    <th>Cantidad de MB</th>
+                </tr>
+                <tr>
+                    <td>Estandar</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Medio</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Premium</td>
+                    <td>200</td>
+                </tr>
+            </table>
+        </section>
+        <!-- Lucas Pereyra y Rodolfo Nahuel Kubin -->
+
+        <!-- Rodolfo Nahuel Kubin -->
+        <section id="aboutUs">
+            <h1>Acerca de nuestra Empresa</h1>
+            <div>
+                <h2>Alfredo Di Stefano</h2>
+                <img src="assets/fundador2.png" alt="Fundador 2" width="300px" />
+                <h4>Fundador de OberStar</h4>
+                <p>
+                    Fundó OberStar en 1976 junto con un amigo de la adolescencia, Charles DiMarco, en el garaje de su casa. Aupado por el
+                    éxito del OberStar, Alfredo obtuvo una gran relevancia pública, siendo portada de Time en 1982.14 Contaba 27 años y ya
+                    era millonario gracias a la exitosa salida a bolsa de la compañía a finales del año anterior. Murio el 5 de octubre de
+                    2011
+                </p>
+                <a href="https://es.wikipedia.org/wiki/Steve_Jobs" target="_blank">Bibliografia extendida</a>
+            </div>
+            <div>
+                <h2>Charles DiMarco</h2>
+                <img src="assets/fundador.png" alt="Fundador 1" width="300px" />
+                <h4>Co-Fundador de OberStar</h4>
+                <p>
+                    Es un magnate empresarial, desarrollador de software, inversor, autor y filántropo estadounidense. Es cofundador de
+                    OberStar, junto con difunto amigo de la infancia Alfredo Di Stefano. Durante su carrera en Microsoft, DiMarco ocupó los
+                    cargos de presidente, director ejecutivo (CEO), presidente y arquitecto jefe de software, además de ser el mayor
+                    accionista individual hasta mayo de 2014. Fue uno de los principales empresarios de la revolución de las
+                    microcomputadoras de las décadas de 1970 y 1980.
+                </p>
+                <a href="https://es.wikipedia.org/wiki/Bill_Gates" target="_blank">Bibliografia extendida</a>
+            </div>
+            <div>
+                <h2>Nuestros primeros años</h2>
+                <img src="assets/trabajo.png" alt="Trabajo" width="400px" />
+                <h4>Uno de nuestros empleados en pleno trabajo</h4>
+                <img src="assets/servidores.png" alt="Servidores" width="400px" />
+                <h4>Servidores los cuales alojaban toda la calidad de nuestro servicio</h4>
+            </div>
+        </section>
+        <!-- Rodolfo Nahuel Kubin -->
+
+        <!-- Lucas Pereyra -->
+        <footer>
+            <div id="contact">
+                <form>
+                    <fieldset>
+                        <legend>Contacto</legend>
+                        <label for="nombre"></label>
+                        <input type="text" id="nombre" placeholder="Ingrese su nombre" required />
+                        <br />
+                        <label for="email"></label>
+                        <input type="email" id="email" placeholder="Ingrese su email" required />
+                        <br />
+                        <label for="select">Ciudad donde reside</label>
+                        <select name="select" id="select">
+                            <option value="none" selected>Ninguno</option>
+                            <option value="MardelPlata">Mar del Plata</option>
+                            <option value="Miramar">Miramar</option>
+                            <option value="Chapadmalal">Chapadmalal</option>
+                            <option value="SantaClara">Santa Clara del Mar</option>
+                            <option value="MardeCobo">Mar de Cobo</option>
+                            <option value="MarChiquita">Mar Chiquita</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <br />
+                        <textarea name="descripcion" id="descripcion" cols="30" rows="5" placeholder="Descripción.."></textarea>
+                        <br /><br />
+                        <button>Enviar</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div>
+                <p>Diseñado por <b>Lucas Pereyra</b> y <b>Rodolfo Nahuel Kubin</b></p>
+            </div>
+        </footer>
+        <!-- Lucas Pereyra -->
+    </body>
+</html>

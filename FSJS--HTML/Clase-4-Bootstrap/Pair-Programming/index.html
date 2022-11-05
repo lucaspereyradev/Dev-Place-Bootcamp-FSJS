@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <!-- Navbar -->
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"> </a>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
+                    </ul>
+
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                        <input
+                            type="search"
+                            class="form-control form-control-dark text-bg-dark"
+                            placeholder="Buscar..."
+                            aria-label="Search"
+                        />
+                    </form>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#modal">
+                            Iniciar Sesión
+                        </button>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end Navbar -->
+
+        <!-- Modal -->
+        <div class="modal" id="modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">En mantenimiento..</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end Modal -->
+
+        <div class="container my-5">
+            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2">
+                <div class="col">
+                    <!-- Offcanvas -->
+                    <button
+                        class="btn btn-dark"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasTop"
+                        aria-controls="offcanvasTop"
+                    >
+                        Offcanvas con tabla dentro
+                    </button>
+
+                    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                        <div class="offcanvas-header">
+                            <table class="table mx-3 mt-3 text-center">
+                                <thead class="table-dark">
+                                    <th>#</th>
+                                    <th>Tecnologias</th>
+                                    <th>POO</th>
+                                </thead>
+                                <tbody>
+                                    <td>1</td>
+                                    <td>HTML5</td>
+                                    <td>&#x2715;</td>
+                                </tbody>
+                                <tbody>
+                                    <td>2</td>
+                                    <td>CSS3</td>
+                                    <td>&#x2715;</td>
+                                </tbody>
+                                <tbody>
+                                    <td>3</td>
+                                    <td>JavaScript</td>
+                                    <td>&#x2714;</td>
+                                </tbody>
+                                <tbody>
+                                    <td>4</td>
+                                    <td>Java</td>
+                                    <td>&#x2714;</td>
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <!-- end Offcanvas -->
+                </div>
+                <div class="col">
+                    <!-- Progress bar with Striped -->
+                    <h4>Progreso del curso</h4>
+                    <div class="progress">
+                        <div
+                            class="progress-bar progress-bar-striped progress-bar-animated"
+                            role="progressbar"
+                            aria-label="Animated striped example"
+                            aria-valuenow="10"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            style="width: 10%"
+                        ></div>
+                    </div>
+                    <!-- end Progress bar with Striped -->
+                </div>
+
+                <div class="col mt-5">
+                    <!-- Accordion -->
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button
+                                    class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne"
+                                    aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne"
+                                >
+                                    Acordeon con información dentro
+                                </button>
+                            </h2>
+                            <div
+                                id="panelsStayOpen-collapseOne"
+                                class="accordion-collapse collapse show"
+                                aria-labelledby="panelsStayOpen-headingOne"
+                            >
+                                <div class="accordion-body">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ab a suscipit? Perferendis provident
+                                    dolor nihil nobis doloremque. Consectetur a in autem voluptate, neque quos eveniet explicabo corporis
+                                    vitae ipsam. Possimus non exercitationem adipisci, reiciendis dolorem, ea natus reprehenderit,
+                                    dignissimos voluptatum quaerat cupiditate ut nemo tempore illum amet id quas impedit sequi doloribus
+                                    nulla ex! Ratione excepturi ea asperiores? Maiores. Ratione aut ipsa provident voluptate commodi culpa
+                                    numquam! Facilis, dolorum dolore officiis eligendi temporibus quisquam, molestias consequatur aperiam
+                                    iste dignissimos tempore enim. Hic culpa atque, odit totam non nihil necessitatibus! Aut, laudantium
+                                    totam numquam perspiciatis nam unde corporis at architecto nihil nostrum sit reiciendis fugiat ipsa eius
+                                    laborum! Error cupiditate aperiam maiores laboriosam. Nisi esse quam, distinctio totam quibusdam illum?
+                                    Deserunt magnam et numquam non inventore, asperiores molestias repudiandae dolorum, cupiditate nesciunt,
+                                    nostrum in dolor quidem! Quod sapiente odio nisi in quae, debitis quo exercitationem id fugit vero
+                                    excepturi consequatur.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseTwo"
+                                    aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseTwo"
+                                >
+                                    Acordeon con información dentro
+                                </button>
+                            </h2>
+                            <div
+                                id="panelsStayOpen-collapseTwo"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingTwo"
+                            >
+                                <div class="accordion-body">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas rerum minus officiis distinctio sunt
+                                    error est neque amet saepe nobis alias natus perferendis molestias, modi quam fuga eos asperiores!
+                                    Necessitatibus! Deleniti quam placeat eligendi repudiandae harum delectus. Sapiente omnis dicta, sit
+                                    iure nulla inventore? Fugit laboriosam expedita id eaque ipsa architecto, iste perferendis repellendus
+                                    doloremque blanditiis quasi quia amet! Rerum. Reiciendis aliquam eaque assumenda perferendis, molestias
+                                    ipsam a, cupiditate dignissimos quam odit eveniet officia ipsum excepturi, aut animi sit cumque ea ab
+                                    perspiciatis incidunt veritatis quae temporibus. Magni, veritatis tenetur! Tenetur quis veniam pariatur
+                                    laborum voluptates quas esse vel vero alias saepe nisi, excepturi reprehenderit aspernatur, magni quos
+                                    odit ipsum sunt architecto blanditiis id eum! Quasi et tenetur doloribus? Voluptates. Commodi nulla sed
+                                    minima molestiae ex quos nihil facilis voluptates soluta ipsum earum repellat aliquid, repudiandae sit
+                                    recusandae. Nemo possimus minus alias recusandae quisquam mollitia cum facilis sapiente fugiat et.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseThree"
+                                    aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseThree"
+                                >
+                                    Acordeon con información dentro
+                                </button>
+                            </h2>
+                            <div
+                                id="panelsStayOpen-collapseThree"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingThree"
+                            >
+                                <div class="accordion-body">
+                                    <img src="homero.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end Accordion -->
+                </div>
+
+                <div class="col mt-5">
+                    <!-- Collapse button with card placeholder-->
+                    <p>
+                        <a
+                            class="btn btn-primary"
+                            data-bs-toggle="collapse"
+                            href="#collapseExample"
+                            role="button"
+                            aria-expanded="false"
+                            aria-controls="collapseExample"
+                        >
+                            Collapse con card en carga dentro
+                        </a>
+                    </p>
+
+                    <p></p>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <h5 class="card-title placeholder-glow">
+                                <span class="placeholder col-6"></span>
+                            </h5>
+                            <p class="card-text placeholder-glow">
+                                <span class="placeholder col-7"></span>
+                                <span class="placeholder col-4"></span>
+                                <span class="placeholder col-4"></span>
+                                <span class="placeholder col-6"></span>
+                                <span class="placeholder col-8"></span>
+                            </p>
+                            <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+                        </div>
+                    </div>
+                    <!-- end Collapse button with card-->
+                </div>
+
+                <div class="col mt-4">
+                    <!-- Toast -->
+                    <button type="button" class="btn btn-primary" id="liveToastBtn">Mostrar Alerta Toast</button>
+
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <strong class="me-auto">ALERTA</strong>
+                                <small>hace 1 minuto</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">Estuvimos 1 hora con esto</div>
+                        </div>
+                    </div>
+                    <!-- end Toast -->
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            window.onload = (event) => {
+                let btnToast = document.getElementById("liveToastBtn");
+                btnToast.addEventListener("click", () => {
+                    const toast = new bootstrap.Toast(".toast");
+                    toast.show();
+                });
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style: none;
+}
+
+.navbar {
+    text-align: center;
+    background-color: aquamarine;
+    padding: 10px;
+}
+
+.navbar-li {
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+#product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.product-title {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.cards {
+    display: flex;
+}
+
+.card {
+    background-color: aquamarine;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    height: 380px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.card-img {
+    width: 100%;
+    height: 320px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.auriculares {
+    background-image: url(assets/auriculares.jpg);
+}
+
+.mouse {
+    background-image: url(assets/mouse.jpg);
+}
+
+.teclado {
+    background-image: url(assets/teclado.jpg);
+}
+
+.card-text {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#section-contact {
+    display: flex;
+    justify-content: center;
+}
+
+.contact {
+    width: 350px;
+}
+
+fieldset {
+    border-color: aquamarine;
+    background-color: aquamarine;
+    padding: 20px;
+    margin: 10px;
+}
+
+fieldset legend {
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 4px;
+    text-shadow: 3px 2px 1px aliceblue;
+}
+
+fieldset input {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+fieldset textarea {
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    resize: none;
+}
+
+.btn {
+    padding: 10px;
+    width: 100%;
+    background-color: aliceblue;
+    border: none;
+    font-size: 17px;
+}
+
+.btn:hover {
+    box-shadow: 2px 3px 5px gray;
+}
+
+.footer {
+    background-color: aquamarine;
+    text-align: center;
+    color: #000;
+    padding: 30px;
+    margin-top: 5px;
+}
+
+#section-table {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    text-align: center;
+}
+
+.content-table {
+    border-collapse: collapse;
+    font-size: 17px;
+    min-width: 450px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: aquamarine;
+    color: #000;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+hr {
+    width: 20%;
+    margin: auto;
+}

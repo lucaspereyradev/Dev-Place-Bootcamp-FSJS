@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <ul class="navbar-ul">
+                    <li class="navbar-li"><a href="index.html">Inicio</a></li>
+                    <li class="navbar-li"><a href="#product">Productos</a></li>
+                    <li class="navbar-li"><a href="#section-table">Tabla</a></li>
+                    <li class="navbar-li"><a href="#section-contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="product">
+            <div class="product-title">
+                <h2>Productos</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-img auriculares"></div>
+                    <div class="card-text">
+                        <h3 class="text-title">Auriculares</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img mouse"></div>
+                    <div class="card-text">
+                        <h3 class="text-title">Mouse</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img teclado"></div>
+                    <div class="card-text">
+                        <h3 class="text-title">Teclado</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr />
+
+        <section id="section-table">
+            <div class="table">
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th>Productos</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Auriculares</td>
+                            <td>$50</td>
+                            <td>Con stock</td>
+                        </tr>
+                        <tr>
+                            <td>Mouse</td>
+                            <td>$60</td>
+                            <td>Con stock</td>
+                        </tr>
+                        <tr>
+                            <td>Teclado</td>
+                            <td>$100</td>
+                            <td>Sin stock</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr />
+
+        <section id="section-contact">
+            <div class="contact">
+                <form>
+                    <fieldset>
+                        <legend>CONTACTO</legend>
+                        <input type="text" id="nombre" placeholder="Ingrese su nombre" required />
+                        <input type="email" id="email" placeholder="Ingrese su email" required />
+                        <textarea name="descripcion" id="descripcion" cols="30" rows="5" placeholder="Descripción.."></textarea>
+                        <button class="btn">Enviar</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer">
+                <p>Diseñado por Lucas Pereyra &copy; 2022</p>
+            </div>
+        </footer>
+    </body>
+</html>

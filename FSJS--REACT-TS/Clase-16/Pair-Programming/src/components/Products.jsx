@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, Card, Row, Col, Container } from "react-bootstrap/";
-import "../productos.css";
+import { Button, Card, Row, Col } from "react-bootstrap/";
 
 const productos = [
     {

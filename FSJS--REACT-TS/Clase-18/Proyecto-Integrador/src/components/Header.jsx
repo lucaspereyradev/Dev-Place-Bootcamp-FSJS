@@ -90,7 +90,7 @@ function ResponsiveAppBar() {
                             textDecoration: "none",
                         }}
                     >
-                        LOGO
+                        TUTIENDA
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -157,12 +157,12 @@ function ResponsiveAppBar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip>
                             <Search>
                                 <SearchIconWrapper>
                                     <SearchIcon />
                                 </SearchIconWrapper>
-                                <StyledInputBase placeholder="Search…" inputProps={{ "aria-label": "search" }} />
+                                <StyledInputBase placeholder="Buscar..." inputProps={{ "aria-label": "search" }} />
                             </Search>
                         </Tooltip>
                     </Box>

@@ -1,0 +1,22 @@
+@import "./algo";
+
+$name: 1px;
+
+body {
+    background-color: bisque;
+}
+
+a {
+    &:hover {
+        color: #000;
+    }
+}
+
+@mixin cajas($colorfondo: black) {
+    background-color: $colorfondo;
+    box-shadow: 1px solid #000;
+}
+
+.card {
+    @include cajas($colorfondo: red);
+}

@@ -1,0 +1,18 @@
+div {
+  text-align: center;
+}
+
+body {
+  background-color: bisque;
+}
+
+a:hover {
+  color: #000;
+}
+
+.card {
+  background-color: red;
+  box-shadow: 1px solid #000;
+}
+
+/*# sourceMappingURL=main.css.map */

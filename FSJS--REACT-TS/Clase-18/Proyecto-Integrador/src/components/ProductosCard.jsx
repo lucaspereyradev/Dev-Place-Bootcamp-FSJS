@@ -1,12 +1,26 @@
-import React from "react";
-import { Card, CardContent, CardActionArea, CardMedia, Typography, CardActions, Button } from "@mui/material";
+import React from 'react'
+import {
+    Card,
+    CardContent,
+    CardActionArea,
+    CardMedia,
+    Typography,
+    CardActions,
+    Button,
+} from '@mui/material'
 
 export default function ProductosCard(props) {
     return (
         <>
-            <Card key={props.id} sx={{ width: "18rem" }}>
+            <Card key={props.id} sx={{ width: '18rem', height: 'auto' }}>
                 <CardActionArea>
-                    <CardMedia component="img" height="230" image={props.img} alt={props.title} />
+                    <CardMedia
+                        component="img"
+                        height="230"
+                        image={props.img}
+                        alt={props.title}
+                        sx={{ marginTop: '0.5rem' }}
+                    />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
                             {props.title}
@@ -26,5 +40,5 @@ export default function ProductosCard(props) {
                 </CardActions>
             </Card>
         </>
-    );
+    )
 }

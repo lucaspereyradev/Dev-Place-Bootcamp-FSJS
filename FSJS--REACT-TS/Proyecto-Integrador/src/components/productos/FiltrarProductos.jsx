@@ -11,6 +11,7 @@ export default function FiltrarProductos() {
     const productos = arrayProductos;
     const [categoria, setCategoria] = useState('Todos los productos');
     const [busqueda, setBusqueda] = useState('');
+    const [productosFiltrados, setproductosFiltrados] = useState([]);
 
     let renderizar;
 
@@ -43,34 +44,11 @@ export default function FiltrarProductos() {
                 break;
         }
     } else {
-        var algo = productos.filter((elemento) => {
-            elemento.title.toLowerCase().includes(busqueda);
-        });
-        console.log(algo);
+        let productosFiltrados1 = productos.filter((e) => e.title.toLowerCase().includes(busqueda));
+        setproductosFiltrados(productosFiltrados1);
+        console.log(productosFiltrados1);
     }
 
-    // algo.map((e, index) => {
-    //     return (
-    //         <ProductosCard
-    //             key={index}
-    //             img={e.img}
-    //             title={e.title}
-    //             description={e.description}
-    //             price={e.price}
-    //         />
-    //     )
-    // })
-
-    // renderizar += (
-    //     <ProductosCard
-    //         key={index}
-    //         img={elemento.img}
-    //         title={elemento.title}
-    //         description={elemento.description}
-    //         price={elemento.price}
-    //     />
-    // )
-    //}
     console.log(busqueda);
 
     return (
@@ -115,7 +93,19 @@ export default function FiltrarProductos() {
                     </Paper>
                 </div>
             </div>
-            <div style={{ width: '80rem', margin: 'auto', marginBottom: '5rem' }}>{renderizar}</div>
+            <div style={{ width: '80rem', margin: 'auto', marginBottom: '5rem' }}>
+                {!busqueda
+                    ? renderizar
+                    : productosFiltrados.map((elemento, index) => {
+                          <ProductosCard
+                              key={index}
+                              img={elemento.img}
+                              title={elemento.title}
+                              description={elemento.description}
+                              price={elemento.price}
+                          />;
+                      })}
+            </div>
         </div>
     );
 }

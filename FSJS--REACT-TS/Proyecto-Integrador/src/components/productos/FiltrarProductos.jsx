@@ -1,52 +1,52 @@
 /* eslint-disable default-case */
 /* eslint-disable array-callback-return */
-import { Button, IconButton, InputBase, Paper } from '@mui/material'
-import SearchIcon from '@mui/icons-material/Search'
-import React, { useState } from 'react'
-import Productos from './Productos'
-import arrayProductos from '../../datos/Datos'
-import ProductosCard from './ProductosCard'
+import { Button, IconButton, InputBase, Paper } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import React, { useState } from 'react';
+import Productos from './Productos';
+import arrayProductos from '../../datos/Datos';
+import ProductosCard from './ProductosCard';
 
 export default function FiltrarProductos() {
-    const productos = arrayProductos
-    const [categoria, setCategoria] = useState('Todos los productos')
-    const [busqueda, setBusqueda] = useState('')
+    const productos = arrayProductos;
+    const [categoria, setCategoria] = useState('Todos los productos');
+    const [busqueda, setBusqueda] = useState('');
 
-    let renderizar
+    let renderizar;
 
     // eslint-disable-next-line default-case
 
     function OnclickBoton(e) {
-        setCategoria(e.target.textContent)
+        setCategoria(e.target.textContent);
     }
 
     const form = (e) => {
-        e.preventDefault()
-    }
+        e.preventDefault();
+    };
 
     const buscar = (e) => {
-        setBusqueda(e.target.value.toLowerCase())
-    }
+        setBusqueda(e.target.value.toLowerCase());
+    };
     if (!busqueda) {
         switch (categoria) {
             case 'Todos los productos':
-                renderizar = <Productos categoria="Todos los productos" />
-                break
+                renderizar = <Productos categoria="Todos los productos" />;
+                break;
             case 'Celulares':
-                renderizar = <Productos categoria={categoria} />
-                break
+                renderizar = <Productos categoria={categoria} />;
+                break;
             case 'Computadoras':
-                renderizar = <Productos categoria={categoria} />
-                break
+                renderizar = <Productos categoria={categoria} />;
+                break;
             case 'Tablets':
-                renderizar = <Productos categoria={categoria} />
-                break
+                renderizar = <Productos categoria={categoria} />;
+                break;
         }
     } else {
         var algo = productos.filter((elemento) => {
-            elemento.title.toLowerCase().includes(busqueda)
-        })
-        console.log(algo)
+            elemento.title.toLowerCase().includes(busqueda);
+        });
+        console.log(algo);
     }
 
     // algo.map((e, index) => {
@@ -71,7 +71,7 @@ export default function FiltrarProductos() {
     //     />
     // )
     //}
-    console.log(busqueda)
+    console.log(busqueda);
 
     return (
         <div className="contenedor-filtrar">
@@ -117,5 +117,5 @@ export default function FiltrarProductos() {
             </div>
             <div style={{ width: '80rem', margin: 'auto', marginBottom: '5rem' }}>{renderizar}</div>
         </div>
-    )
+    );
 }

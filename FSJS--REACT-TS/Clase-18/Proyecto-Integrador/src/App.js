@@ -1,22 +1,24 @@
 import React from 'react'
 import './assets/main.css'
-import BotonSubir from './components/BotonSubir'
-import Carrousel from './components/Carrousel'
-import FiltrarProductos from './components/FiltrarProductos'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import PreguntasFrecuentes from './components/PreguntasFrecuentes'
+import Header from './components/header/Header'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import HomePage from './components/pages/HomePage'
+import ProductsPage from './components/pages/ProductsPage'
+import LoginPage from './components/pages/LoginPage'
+import RegisterPage from './components/pages/RegisterPage'
 
 function App() {
     return (
-        <div className="App">
-            <Header />
-            <Carrousel />
-            <FiltrarProductos />
-            <PreguntasFrecuentes />
-            <BotonSubir />
-            <Footer />
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Header />}>
+                    <Route index element={<HomePage />} />
+                    <Route path="/productos" element={<ProductsPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     )
 }
 

@@ -2,7 +2,7 @@
 /* eslint-disable array-callback-return */
 import React from 'react'
 import ProductosCard from './ProductosCard'
-import arrayProductos from '../datos/Datos'
+import arrayProductos from '../../datos/Datos'
 
 function Productos(props) {
     const productos = arrayProductos
@@ -18,12 +18,12 @@ function Productos(props) {
                     marginTop: '2.3rem',
                 }}
             >
-                {productos.map((elemento, key) => {
+                {productos.map((elemento, index) => {
                     if (props.categoria != 'Todos los productos') {
                         if (elemento.category == props.categoria) {
                             return (
                                 <ProductosCard
-                                    key={key}
+                                    key={index}
                                     img={elemento.img}
                                     title={elemento.title}
                                     description={elemento.description}
@@ -34,7 +34,7 @@ function Productos(props) {
                     } else {
                         return (
                             <ProductosCard
-                                key={key}
+                                key={index}
                                 img={elemento.img}
                                 title={elemento.title}
                                 description={elemento.description}

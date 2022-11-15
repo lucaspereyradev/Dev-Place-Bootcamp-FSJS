@@ -12,7 +12,7 @@ import {
 export default function ProductosCard(props) {
     return (
         <>
-            <Card key={props.id} sx={{ width: '18rem', height: 'auto' }}>
+            <Card key={props.index} sx={{ width: '18rem', height: 'auto' }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"

@@ -20,7 +20,7 @@ export default function BotonSubir() {
     return (
         <div className="contenedor-subir" onClick={subir}>
             <div className="boton-subir">
-                <KeyboardArrowUpIcon className="icono-subir" />
+                <KeyboardArrowUpIcon className="icono-subir" fontSize="large" />
             </div>
         </div>
     )

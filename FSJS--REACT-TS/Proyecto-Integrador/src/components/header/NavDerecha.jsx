@@ -1,10 +1,11 @@
-import { Button, IconButton, Stack } from '@mui/material'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { Button, IconButton, Stack } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
 
 function NavDerecha() {
     const prevenirNavegador = (e) => {
-        e.stopPropagation()
-    }
+        e.stopPropagation();
+    };
 
     return (
         <div style={{ display: 'flex' }}>
@@ -19,17 +20,19 @@ function NavDerecha() {
                     Registrarse
                 </Button>
             </Stack>
-            <IconButton
-                sx={{ ml: 2, p: 1 }}
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="logo"
-            >
-                <ShoppingCartIcon />
-            </IconButton>
+            <Link to="/carrito">
+                <IconButton
+                    sx={{ ml: 2, p: 1 }}
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="logo"
+                >
+                    <ShoppingCartIcon />
+                </IconButton>
+            </Link>
         </div>
-    )
+    );
 }
 
-export default NavDerecha
+export default NavDerecha;

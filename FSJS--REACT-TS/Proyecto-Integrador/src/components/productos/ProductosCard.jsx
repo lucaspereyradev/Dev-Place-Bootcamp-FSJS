@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     Card,
     CardContent,
@@ -7,12 +7,13 @@ import {
     Typography,
     CardActions,
     Button,
-} from '@mui/material'
+} from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function ProductosCard(props) {
     return (
         <>
-            <Card key={props.index} sx={{ width: '18rem', height: 'auto' }}>
+            <Card key={props.id} sx={{ width: '17rem', height: 'auto' }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
@@ -32,13 +33,16 @@ export default function ProductosCard(props) {
                 </CardActionArea>
                 <CardActions>
                     <Typography mr="auto" ml={1} variant="body1" color="text.secondary">
+                        <b>USD$</b>
                         {props.price}
                     </Typography>
-                    <Button size="small" color="primary">
-                        Comprar
-                    </Button>
+                    <Link to={`/detailProduct/${props.id}`}>
+                        <Button size="small" color="primary">
+                            Comprar
+                        </Button>
+                    </Link>
                 </CardActions>
             </Card>
         </>
-    )
+    );
 }

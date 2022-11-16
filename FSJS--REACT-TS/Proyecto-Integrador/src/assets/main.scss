@@ -2,6 +2,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: #202020;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
 .contenedor-subir {
     position: fixed;
     bottom: 4rem;
@@ -127,7 +140,7 @@
 .contenedor-filtrar {
     margin: auto;
     margin-top: 2rem;
-    width: 66.6vw;
+    width: 80vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -152,4 +165,31 @@
 .contenedor-busqueda {
     display: flex;
     justify-content: center;
+}
+
+.contenedor-render {
+    display: flex;
+    justify-content: center;
+}
+
+.productos-render {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    width: 80vw;
+    margin: auto;
+    margin-top: 2.3rem;
+    margin-bottom: 5rem;
+}
+
+.contenedor-detalles {
+    width: 80vw;
+    margin: auto;
+    margin-top: 2.3rem;
+}
+
+.contenido-detalles {
+    display: flex;
+    justify-content: space-around;
 }

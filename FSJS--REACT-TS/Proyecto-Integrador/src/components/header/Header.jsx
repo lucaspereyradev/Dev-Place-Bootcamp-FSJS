@@ -1,7 +1,7 @@
-import React from 'react'
-import { AppBar, Toolbar, Typography } from '@mui/material'
-import NavDerecha from './NavDerecha'
-import { Outlet, Link } from 'react-router-dom'
+import React from 'react';
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import NavDerecha from './NavDerecha';
+import { Outlet, Link } from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -10,7 +10,9 @@ export default function Header() {
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-around' }}>
                     <Link to="/">
                         <Typography variant="h6" component="div" sx={{ flexGrow: 0, ml: 5 }}>
-                            TuTienda
+                            <h5 className="logo">
+                                <i>TuTienda</i>
+                            </h5>
                         </Typography>
                     </Link>
 
@@ -19,5 +21,5 @@ export default function Header() {
             </AppBar>
             <Outlet />
         </>
-    )
+    );
 }

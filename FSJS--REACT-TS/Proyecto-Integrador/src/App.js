@@ -7,21 +7,25 @@ import ProductsPage from './components/pages/ProductsPage';
 import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import DetailsProducts from './components/pages/DetailsProducts';
+import Cart from './components/pages/Cart';
+import { CartProvider } from 'react-use-cart';
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Header />}>
-                    <Route index element={<HomePage />} />
-                    <Route path="/productos" element={<ProductsPage />} />
-                    {/* <Route path="/carrito" element={<ShoppingCart />} /> */}
-                    <Route path="/detailProduct/:id" element={<DetailsProducts />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <CartProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Header />}>
+                        <Route index element={<HomePage />} />
+                        <Route path="/productos" element={<ProductsPage />} />
+                        <Route path="/carrito" element={<Cart />} />
+                        <Route path="/productos/:id" element={<DetailsProducts />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/register" element={<RegisterPage />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </CartProvider>
     );
 }
 

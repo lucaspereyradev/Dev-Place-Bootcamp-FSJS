@@ -10,6 +10,12 @@ a {
   padding: 0;
 }
 
+.hr {
+  width: 90vw;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .logo {
   font-size: 1.1rem;
   font-family: "Poppins", sans-serif;
@@ -172,6 +178,43 @@ a {
 .contenido-detalles {
   display: flex;
   justify-content: space-around;
+}
+
+.productImage {
+  height: 350px;
+  padding: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px 0 rgba(20, 20, 20, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-table {
+  width: 100%;
+  text-align: center;
+}
+
+.tr {
+  box-shadow: 2px 2px 8px 0 rgba(20, 20, 20, 0.2);
+}
+
+.details-cart {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cant-products {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.553);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,10 +1,9 @@
-import React from 'react'
-import '../../assets/main.css'
-import BotonSubir from '../BotonSubir'
-import Footer from '../footer/Footer'
-import PreguntasFrecuentes from '../PreguntasFrecuentes'
-import CarrouselProductos from '../productos/CarrouselProductos'
-import Carrousel from '../carrousel/Carrousel'
+import React from 'react';
+import '../../assets/main.css';
+import BotonSubir from '../BotonSubir';
+import PreguntasFrecuentes from '../PreguntasFrecuentes';
+import CarrouselProductos from '../productos/CarrouselProductos';
+import Carrousel from '../carrousel/Carrousel';
 
 function HomePage() {
     return (
@@ -13,8 +12,7 @@ function HomePage() {
             <CarrouselProductos />
             <PreguntasFrecuentes />
             <BotonSubir />
-            <Footer />
         </>
-    )
+    );
 }
-export default HomePage
+export default HomePage;

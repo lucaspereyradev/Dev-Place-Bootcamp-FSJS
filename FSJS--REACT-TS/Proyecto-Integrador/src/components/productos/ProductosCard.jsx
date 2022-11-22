@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardActionArea, Typography, CardActions, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
+import Swal from 'sweetalert2';
 
 export default function ProductosCard(props) {
     let containerImage = {
@@ -14,6 +15,23 @@ export default function ProductosCard(props) {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+    });
+    function showAlert() {
+        Toast.fire({
+            icon: 'success',
+            title: 'Producto añadido al carrito',
+        });
+    }
 
     const { addItem } = useCart();
 
@@ -46,7 +64,7 @@ export default function ProductosCard(props) {
                         color="primary"
                         onClick={() => {
                             addItem(props.item);
-                            alert('Producto añadido');
+                            showAlert();
                         }}
                     >
                         Comprar

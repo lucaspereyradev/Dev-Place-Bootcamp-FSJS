@@ -9,6 +9,7 @@ import RegisterPage from './components/pages/RegisterPage';
 import DetailsProducts from './components/pages/DetailsProducts';
 import Cart from './components/pages/Cart';
 import { CartProvider } from 'react-use-cart';
+import Footer from './components/footer/Footer';
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                     </Route>
                 </Routes>
             </BrowserRouter>
+            <Footer />
         </CartProvider>
     );
 }

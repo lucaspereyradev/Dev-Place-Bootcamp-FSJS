@@ -1,11 +1,14 @@
 import { Button, IconButton, Stack } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
+import { useCart } from 'react-use-cart';
 
 function NavDerecha() {
     const prevenirNavegador = (e) => {
         e.stopPropagation();
     };
+
+    const { totalItems, totalUniqueItems } = useCart();
 
     return (
         <div style={{ display: 'flex' }}>
@@ -29,6 +32,10 @@ function NavDerecha() {
                     aria-label="logo"
                 >
                     <ShoppingCartIcon />
+                    <div className="cant-products">
+                        {!totalUniqueItems}
+                        {totalItems}
+                    </div>
                 </IconButton>
             </Link>
         </div>

@@ -217,4 +217,9 @@ a {
   font-size: 14px;
 }
 
+.textarea {
+  height: 10vh;
+  resize: none;
+}
+
 /*# sourceMappingURL=main.css.map */

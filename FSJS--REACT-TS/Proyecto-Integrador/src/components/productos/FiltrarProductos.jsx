@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import Productos from './Productos';
 import arrayProductos from '../../datos/Datos';
 import ProductosCard from './ProductosCard';
+import { Link } from 'react-router-dom';
 
 export default function FiltrarProductos() {
     const productos = arrayProductos;
@@ -89,6 +90,15 @@ export default function FiltrarProductos() {
                     md={4}
                     sx={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 1 }}
                 >
+                    <Link to="/vender">
+                        <Button
+                            sx={{ marginRight: 2, marginBottom: 1 }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            ¡Vende!
+                        </Button>
+                    </Link>
                     <Paper
                         component="form"
                         onSubmit={form}

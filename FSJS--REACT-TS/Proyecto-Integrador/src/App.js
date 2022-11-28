@@ -10,6 +10,7 @@ import DetailsProducts from './components/pages/DetailsProducts';
 import Cart from './components/pages/Cart';
 import { CartProvider } from 'react-use-cart';
 import Footer from './components/footer/Footer';
+import AddProduct from './components/pages/AddProduct';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                         <Route path="/productos/:id" element={<DetailsProducts />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/register" element={<RegisterPage />} />
+                        <Route path="/vender" element={<AddProduct />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

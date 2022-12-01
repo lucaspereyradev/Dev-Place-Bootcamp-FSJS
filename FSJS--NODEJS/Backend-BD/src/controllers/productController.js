@@ -26,6 +26,8 @@ Controller.createProduct = async (req, res) => {
         const urlImage = url + '/upload/' + req.file.filename;
         const modelData = {
             name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
             stock: req.body.stock,
             image: urlImage,
             Category: req.body.Category,

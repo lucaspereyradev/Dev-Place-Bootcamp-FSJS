@@ -12,6 +12,8 @@ var Products = sequelize.define(
             autoIncrement: true,
         },
         name: Sequelize.STRING,
+        price: Sequelize.DOUBLE,
+        description: Sequelize.STRING,
         stock: Sequelize.INTEGER,
         image: Sequelize.TEXT,
     },
@@ -25,16 +27,26 @@ const ValidateProducts = (req, res, next) => {
             'string.min': 'El nombre del producto debe ser mayor a 5 caracteres',
             'any.required': 'Ingresa el Nombre  del producto',
         }),
+        price: Joi.number().required().messages({
+            'number.empty': 'Ingresa el precio',
+            number: 'Ingresa el precio',
+            'any.required': 'Ingresa el precio',
+        }),
+        description: Joi.string().min(5).max(255).required().messages({
+            'string.empty': 'Ingresa la descripción del producto',
+            'string.min': 'La descripción debe ser mayor a 5 caracteres',
+            'any.required': 'Ingresa la descripción del producto',
+        }),
         stock: Joi.number().integer().required().messages({
             'number.empty': 'Ingresa la cantidad de stock',
             'number.integer': 'Ingresa la cantidad de stock',
             'any.required': 'Ingresa la cantidad de stock',
         }),
-        // Category: Joi.number().integer().required().messages({
-        //     'number.empty': 'Ingresa la categoria del producto',
-        //     'number.integer': 'Ingresa la categoria del producto',
-        //     'any.required': 'Ingresa la categoria del producto',
-        // }),
+        Category: Joi.number().integer().required().messages({
+            'number.empty': 'Ingresa la categoria del producto',
+            'number.integer': 'Ingresa la categoria del producto',
+            'any.required': 'Ingresa la categoria del producto',
+        }),
     });
     validateRequest(req, res, next, schema);
 };

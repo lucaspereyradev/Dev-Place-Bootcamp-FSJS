@@ -1,26 +1,34 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable array-callback-return */
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProductosCard from './ProductosCard';
-import arrayProductos from '../../datos/Datos';
 import { Grid } from '@mui/material';
+import axios from 'axios';
+import { useState } from 'react';
 
 function Productos(props) {
-    const productos = arrayProductos;
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        async function productosDB() {
+            const res = await axios.get('http://localhost:5050/v0/product/');
+            setProducts(res.data.data);
+        }
+        productosDB();
+    }, []);
 
     return (
         <>
-            {productos.map((elemento) => {
-                if (props.categoria != 'Todos los productos') {
-                    if (elemento.category == props.categoria) {
+            {products.map((elemento) => {
+                if (props.categoria != '0') {
+                    if (elemento.Category == props.categoria) {
                         return (
-                            <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
+                            <Grid item xs={12} sm={6} md={4} lg={4} xl={3} key={elemento.id}>
                                 <ProductosCard
                                     id={elemento.id}
                                     item={elemento}
-                                    key={elemento.id}
-                                    img={elemento.img}
-                                    title={elemento.title}
+                                    img={elemento.image}
+                                    title={elemento.name}
                                     description={elemento.description}
                                     price={elemento.price}
                                 />
@@ -29,13 +37,12 @@ function Productos(props) {
                     }
                 } else {
                     return (
-                        <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
+                        <Grid item xs={12} sm={6} md={4} lg={4} xl={3} key={elemento.id}>
                             <ProductosCard
                                 id={elemento.id}
                                 item={elemento}
-                                key={elemento.id}
-                                img={elemento.img}
-                                title={elemento.title}
+                                img={elemento.image}
+                                title={elemento.name}
                                 description={elemento.description}
                                 price={elemento.price}
                             />

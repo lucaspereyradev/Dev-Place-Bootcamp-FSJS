@@ -11,6 +11,7 @@ import Cart from './components/pages/Cart';
 import { CartProvider } from 'react-use-cart';
 import Footer from './components/footer/Footer';
 import AddProduct from './components/pages/AddProduct';
+import BotonSubir from './components/BotonSubir';
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                     </Route>
                 </Routes>
             </BrowserRouter>
+            <BotonSubir />
             <Footer />
         </CartProvider>
     );

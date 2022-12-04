@@ -1,9 +1,8 @@
 import { Button, Grid, IconButton } from '@mui/material';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useCart } from 'react-use-cart';
 import AddIcon from '@mui/icons-material/Add';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
-import BotonSubir from '../BotonSubir';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
@@ -57,29 +56,35 @@ export default function Cart() {
                     <Grid container item>
                         <table className="cart-table">
                             <thead>
-                                <th></th>
-                                <th>Producto</th>
-                                <th>Precio</th>
-                                <th>Cantidad</th>
-                                <th>
-                                    <Button variant="outlined" color="inherit" onClick={emptyCart}>
-                                        Limpiar carrito
-                                    </Button>
-                                </th>
+                                <tr>
+                                    <th></th>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>
+                                        <Button
+                                            variant="outlined"
+                                            color="inherit"
+                                            onClick={emptyCart}
+                                        >
+                                            Limpiar carrito
+                                        </Button>
+                                    </th>
+                                </tr>
                             </thead>
                             <tbody>
                                 {items.map((elemento, index) => {
                                     return (
-                                        <>
+                                        <React.Fragment key={index}>
                                             <tr className="tr">
                                                 <td>
                                                     <img
-                                                        src={elemento.img}
-                                                        alt={elemento.title}
+                                                        src={elemento.image}
+                                                        alt={elemento.name}
                                                         style={{ height: '10rem' }}
                                                     />
                                                 </td>
-                                                <td>{elemento.title}</td>
+                                                <td>{elemento.name}</td>
                                                 <td>
                                                     USD$<b>{elemento.price}</b>
                                                 </td>
@@ -125,7 +130,7 @@ export default function Cart() {
                                                     </Button>
                                                 </td>
                                             </tr>
-                                        </>
+                                        </React.Fragment>
                                     );
                                 })}
                             </tbody>
@@ -148,8 +153,6 @@ export default function Cart() {
                     </Grid>
                 </Grid>
             </div>
-
-            <BotonSubir />
         </>
     );
 }

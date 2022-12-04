@@ -2,26 +2,32 @@
 /* eslint-disable array-callback-return */
 import { Button, Grid, IconButton, InputBase, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Productos from './Productos';
-import arrayProductos from '../../datos/Datos';
 import ProductosCard from './ProductosCard';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function FiltrarProductos() {
-    const productos = arrayProductos;
-    const [categoria, setCategoria] = useState('Todos los productos');
+    const [categoria, setCategoria] = useState('0');
     const [busqueda, setBusqueda] = useState('');
+    const [products, setProducts] = useState([]);
 
     let renderizar;
     let productosFiltrados = [];
 
+    useEffect(() => {
+        async function productosDB() {
+            const res = await axios.get('http://localhost:5050/v0/product/');
+            setProducts(res.data.data);
+        }
+        productosDB();
+    }, []);
     // eslint-disable-next-line default-case
 
     function OnclickBoton(e) {
-        setCategoria(e.target.textContent);
+        setCategoria(e.target.value);
     }
-
     const form = (e) => {
         e.preventDefault();
     };
@@ -31,21 +37,21 @@ export default function FiltrarProductos() {
     };
 
     switch (categoria) {
-        case 'Todos los productos':
-            renderizar = <Productos categoria="Todos los productos" />;
+        case '0':
+            renderizar = <Productos categoria="0" />;
             break;
-        case 'Celulares':
+        case '1':
             renderizar = <Productos categoria={categoria} />;
             break;
-        case 'Computadoras':
+        case '2':
             renderizar = <Productos categoria={categoria} />;
             break;
-        case 'Tablets':
+        case '3':
             renderizar = <Productos categoria={categoria} />;
             break;
     }
     if (busqueda) {
-        productosFiltrados = productos.filter((e) => e.title.toLowerCase().includes(busqueda));
+        productosFiltrados = products.filter((e) => e.name.toLowerCase().includes(busqueda));
     }
 
     return (
@@ -57,6 +63,7 @@ export default function FiltrarProductos() {
                         sx={{ marginRight: 2, marginBottom: 1 }}
                         variant="contained"
                         color="inherit"
+                        value="0"
                     >
                         Todos los productos
                     </Button>
@@ -65,6 +72,7 @@ export default function FiltrarProductos() {
                         sx={{ marginRight: 2, marginBottom: 1 }}
                         variant="contained"
                         color="inherit"
+                        value="1"
                     >
                         Celulares
                     </Button>
@@ -73,6 +81,7 @@ export default function FiltrarProductos() {
                         sx={{ marginRight: 2, marginBottom: 1 }}
                         variant="contained"
                         color="inherit"
+                        value="3"
                     >
                         Computadoras
                     </Button>
@@ -81,6 +90,7 @@ export default function FiltrarProductos() {
                         sx={{ marginRight: 2, marginBottom: 1 }}
                         variant="contained"
                         color="inherit"
+                        value="2"
                     >
                         Tablets
                     </Button>
@@ -126,13 +136,12 @@ export default function FiltrarProductos() {
                 {busqueda
                     ? productosFiltrados.map((elemento) => {
                           return (
-                              <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
+                              <Grid item xs={12} sm={6} md={4} lg={4} xl={3} key={elemento.id}>
                                   <ProductosCard
                                       id={elemento.id}
                                       item={elemento}
-                                      key={elemento.id}
-                                      img={elemento.img}
-                                      title={elemento.title}
+                                      img={elemento.image}
+                                      title={elemento.name}
                                       description={elemento.description}
                                       price={elemento.price}
                                   />
@@ -141,7 +150,6 @@ export default function FiltrarProductos() {
                       })
                     : renderizar}
             </Grid>
-            {/* </div> */}
         </>
     );
 }

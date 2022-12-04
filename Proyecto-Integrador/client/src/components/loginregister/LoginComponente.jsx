@@ -1,28 +1,56 @@
-import { IconButton, Link } from '@mui/material'
-import GoogleIcon from '@mui/icons-material/Google'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import AppleIcon from '@mui/icons-material/Apple'
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { IconButton, Link } from '@mui/material';
+import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import AppleIcon from '@mui/icons-material/Apple';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 export default function LoginComponente() {
-    const prevenir = (event) => {
-        event.preventDefault()
-    }
+    const url = 'http://localhost:5050/v0/users/login';
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            var bodyFormData = {
+                email: email,
+                password: password,
+            };
+
+            const resp = await axios.post(url, bodyFormData);
+            console.log(resp.data);
+        } catch (error) {
+            console.log(error.response);
+        }
+    };
 
     return (
         <div className="contenedor-form">
             <div className="contenido-contenedor">
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     <div className="contenido-form caja">
                         <h3>Iniciar sesión</h3>
-                        <input className="input-login" type="email" placeholder="Mail" />
-                        <input className="input-login" type="password" placeholder="Contraseña" />
+                        <input
+                            className="input-login"
+                            type="email"
+                            placeholder="Mail"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <input
+                            className="input-login"
+                            type="password"
+                            placeholder="Contraseña"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                         <div>
                             <input type="checkbox" name="recordar" id="recordar" />
                             <label htmlFor="recordar">Recordar</label>
                         </div>
-                        <button onClick={prevenir}>Ingresar</button>
+                        <button type="submit">Ingresar</button>
                         <div className="text-center">
                             <h5>
                                 ¿No tenes una cuenta? registrate{' '}
@@ -50,5 +78,5 @@ export default function LoginComponente() {
                 </form>
             </div>
         </div>
-    )
+    );
 }

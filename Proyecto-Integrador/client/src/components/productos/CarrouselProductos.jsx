@@ -7,9 +7,9 @@ export default function CarrouselProductos() {
         <div style={{ marginTop: '4rem', marginBottom: '4rem' }}>
             <Carousel>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: 30 }}>
-                    {celulares.map((element) => (
+                    {celulares.map((element, key) => (
                         <ProductosCard
-                            key={element.id}
+                            key={key}
                             img={element.img}
                             title={element.title}
                             description={element.description}
@@ -18,9 +18,9 @@ export default function CarrouselProductos() {
                     ))}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: 30 }}>
-                    {computadoras.map((element) => (
+                    {computadoras.map((element, key) => (
                         <ProductosCard
-                            key={element.id}
+                            key={key}
                             img={element.img}
                             title={element.title}
                             description={element.description}
@@ -29,9 +29,9 @@ export default function CarrouselProductos() {
                     ))}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: 30 }}>
-                    {tablets.map((element) => (
+                    {tablets.map((element, key) => (
                         <ProductosCard
-                            key={element.id}
+                            key={key}
                             img={element.img}
                             title={element.title}
                             description={element.description}

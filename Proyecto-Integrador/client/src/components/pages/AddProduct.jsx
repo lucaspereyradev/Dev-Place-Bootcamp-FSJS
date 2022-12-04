@@ -12,26 +12,6 @@ export default function LoginComponente() {
 
     const url = 'http://localhost:5050/v0/product';
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     try {
-    //         const formData = new FormData();
-    //         formData.append('name', name);
-    //         formData.append('price', price);
-    //         formData.append('description', description);
-    //         formData.append('image', image[0]);
-    //         formData.append('category', category);
-    //         const resp = await fetch('http://localhost:5050/v0/product', {
-    //             method: 'POST',
-    //             body: formData,
-    //             headers: { 'Content-Type': 'multipart/form-data' },
-    //         }).then((res) => console.log(res.message));
-    //         console.log(resp.data);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

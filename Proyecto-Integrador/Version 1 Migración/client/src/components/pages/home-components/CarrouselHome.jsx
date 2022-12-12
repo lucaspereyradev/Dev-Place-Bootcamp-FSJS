@@ -14,7 +14,7 @@ export default function CarrouselHome() {
                     dynamicBullets: true,
                 }}
                 modules={[Pagination]}
-                className="mySwiper"
+                className="mySwiper shadow-lg"
             >
                 <SwiperSlide>
                     <img

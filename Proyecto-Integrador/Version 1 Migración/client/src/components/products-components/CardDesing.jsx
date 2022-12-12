@@ -51,9 +51,7 @@ function CardDesing(props) {
                     >
                         Añadir al carrito
                     </button>
-                    <button className="button-icon opacity-50">
-                        <i className="fa-solid fa-heart" title="Añadir a favoritos"></i>
-                    </button>
+
                     <Link to={`/products/${props.id}`} className="button-icon opacity-50">
                         <i className="fa-solid fa-eye" title="Ver detalles"></i>
                     </Link>

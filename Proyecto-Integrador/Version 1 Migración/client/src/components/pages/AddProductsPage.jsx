@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function AddProductsPage() {
+    const url = 'http://localhost:5050/v0/product';
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [stock, setStock] = useState('');
@@ -9,10 +10,27 @@ export default function AddProductsPage() {
     const [image, setImage] = useState('');
     const [category, setCategory] = useState('');
 
-    const url = 'http://localhost:5050/v0/product';
+    const [products, setProducts] = useState([]);
+
+    const [userToken, setUserToken] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    useEffect(() => {
+        const loggedUserJSON = window.localStorage.getItem('loggedInApp');
+        if (loggedUserJSON) {
+            const user = JSON.parse(loggedUserJSON);
+            setUserToken(user.tokenAccess);
+        }
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userToken}`,
+                'Content-Type': 'multipart/form-data',
+            },
+        };
         try {
             const formData = new FormData();
             formData.append('name', name);
@@ -21,16 +39,16 @@ export default function AddProductsPage() {
             formData.append('description', description);
             formData.append('image', image[0]);
             formData.append('Category', category);
-            const resp = await axios.post(url, formData, {
-                headers: { 'Content-Type': 'multipart/form-data' },
-            });
+            const resp = await axios.post(url, formData, config);
             console.log(resp.data);
         } catch (error) {
-            console.log(error);
+            setErrorMessage(error.response.data.message);
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 7000);
         }
     };
-
-    const [products, setProducts] = useState([]);
+    console.log(errorMessage);
 
     useEffect(() => {
         async function productosDB() {
@@ -43,44 +61,47 @@ export default function AddProductsPage() {
     return (
         <div className="container grid grid-cols-2 m-auto gap-20 mt-12">
             <div>
-                <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+                    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="py-3 px-6">
+                                <th scope="col" className="py-3 px-6">
                                     Nombre del producto"
                                 </th>
 
-                                <th scope="col" class="py-3 px-6">
+                                <th scope="col" className="py-3 px-6">
                                     Precio
                                 </th>
-                                <th scope="col" class="py-3 px-6">
-                                    <span class="sr-only">Editar</span>
+                                <th scope="col" className="py-3 px-6">
+                                    <span className="sr-only">Editar</span>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             {products.map((product) => {
                                 return (
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <tr
+                                        className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                                        key={product.id}
+                                    >
                                         <th
                                             scope="row"
-                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                                            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                                         >
                                             {product.name}
                                         </th>
 
-                                        <td class="py-4 px-6">$ {product.price}</td>
-                                        <td class="py-4 px-6 text-right">
+                                        <td className="py-4 px-6">$ {product.price}</td>
+                                        <td className="py-4 px-6 text-right">
                                             <button
                                                 href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                                             >
                                                 Editar
                                             </button>
                                             <button
                                                 href="#"
-                                                class="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline"
+                                                className="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline"
                                             >
                                                 Eliminar
                                             </button>
@@ -95,6 +116,11 @@ export default function AddProductsPage() {
             <div className="w-full">
                 <form encType="multipart/form-data" onSubmit={handleSubmit}>
                     <h3 className="text-center font-bold mb-4 text-lg">Publicar producto</h3>
+                    {errorMessage && (
+                        <h3 className="text-center py-2 rounded-lg text-white w-full bg-red-500">
+                            {errorMessage}
+                        </h3>
+                    )}
                     <div className="w-[50%] m-auto flex flex-col gap-y-3">
                         <input
                             name="name"

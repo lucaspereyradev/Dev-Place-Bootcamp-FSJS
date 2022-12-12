@@ -23,19 +23,18 @@ var Products = sequelize.define(
 const ValidateProducts = (req, res, next) => {
     const schema = Joi.object({
         name: Joi.string().min(5).max(100).required().messages({
-            'string.empty': 'Ingresa el Nombre  del producto',
+            'string.empty': 'Ingresar el nombre',
             'string.min': 'El nombre del producto debe ser mayor a 5 caracteres',
-            'any.required': 'Ingresa el Nombre  del producto',
+            'any.required': 'Ingresa el  nombre',
         }),
         price: Joi.number().required().messages({
             'number.empty': 'Ingresa el precio',
-            number: 'Ingresa el precio',
             'any.required': 'Ingresa el precio',
         }),
         description: Joi.string().min(5).max(255).required().messages({
-            'string.empty': 'Ingresa la descripción del producto',
+            'string.empty': 'Ingresa la descripción',
             'string.min': 'La descripción debe ser mayor a 5 caracteres',
-            'any.required': 'Ingresa la descripción del producto',
+            'any.required': 'Ingresa la descripción',
         }),
         stock: Joi.number().integer().required().messages({
             'number.empty': 'Ingresa la cantidad de stock',
@@ -43,9 +42,9 @@ const ValidateProducts = (req, res, next) => {
             'any.required': 'Ingresa la cantidad de stock',
         }),
         Category: Joi.number().integer().required().messages({
-            'number.empty': 'Ingresa la categoria del producto',
-            'number.integer': 'Ingresa la categoria del producto',
-            'any.required': 'Ingresa la categoria del producto',
+            'number.empty': 'Ingresa la categoria',
+            'number.integer': 'Ingresa la categoria',
+            'any.required': 'Ingresa la categoria',
         }),
     });
     validateRequest(req, res, next, schema);

@@ -42,12 +42,12 @@ var User = sequelize.define(
 );
 const ValidateUser = (req, res, next) => {
     const schema = Joi.object({
-        first_name: Joi.string().min(5).max(100).required().messages({
+        first_name: Joi.string().min(2).max(100).required().messages({
             'string.empty': 'Ingresa el Nombre',
             'string.min': 'El nombre debe ser mayor a 5 caracteres',
             'any.required': 'Ingresa el Nombre',
         }),
-        last_name: Joi.string().min(5).max(100).required().messages({
+        last_name: Joi.string().min(2).max(100).required().messages({
             'string.empty': 'Ingresa el Apellido',
             'string.min': 'El Apellido debe ser mayor a 5 caracteres',
             'any.required': 'Ingresa el Apellido',

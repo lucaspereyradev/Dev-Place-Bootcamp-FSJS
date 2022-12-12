@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 export default function LoginPage() {
     const url = 'http://localhost:5050/v0/users/login';
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = async (e) => {
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const loggedUserJSON = window.localStorage.getItem('loggedInApp');
+        if (loggedUserJSON) {
+            const user = JSON.parse(loggedUserJSON);
+            setUser(user);
+        }
+    }, []);
+
+    const submitLoginUser = async (e) => {
         e.preventDefault();
         try {
             var bodyFormData = {
@@ -16,18 +28,31 @@ export default function LoginPage() {
             };
 
             const resp = await axios.post(url, bodyFormData);
-            console.log(resp.data);
+
+            setEmail('');
+            setPassword('');
+
+            window.localStorage.setItem('loggedInApp', JSON.stringify(resp.data));
+            window.location.href = '/';
         } catch (error) {
-            console.log(error.response);
+            setErrorMessage('Credenciales incorrectas');
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 7000);
         }
     };
 
     return (
         <div className="w-[50%] m-auto">
             <div className="flex justify-center items-center">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={submitLoginUser}>
                     <div className="flex flex-col mt-24 gap-3 shadow-lg py-16 px-12 rounded-lg">
                         <h3 className="text-center font-bold text-lg">Iniciar sesión</h3>
+                        {errorMessage && (
+                            <h3 className="text-center py-2 rounded-lg text-white w-full bg-red-500">
+                                {errorMessage}
+                            </h3>
+                        )}
                         <input
                             className="w-full rounded-lg"
                             type="email"

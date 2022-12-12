@@ -17,7 +17,7 @@ export default function CartPage() {
     if (isEmpty)
         return (
             <div className="h-[60vh] flex justify-center items-center">
-                <h1 className="text-[#A3A3A3]"> EL CARRITO ESTA VACIO </h1>
+                <h1 className="text-[#A3A3A3] text-3xl"> EL CARRITO ESTA VACIO </h1>
             </div>
         );
 
@@ -33,45 +33,62 @@ export default function CartPage() {
     }
     return (
         <>
-            <div className="w-[70%] m-auto">
-                <h3>
-                    {!totalUniqueItems} PRODUCTOS TOTALES: {totalItems}
-                </h3>
+            <div className="w-[90%] m-auto mt-20 lg:w-[70%]">
                 <div className="container">
-                    <div>
-                        <table className="w-full text-center">
-                            <thead>
+                    <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table className="w-full text-md text-center text-gray-500 ">
+                            <thead className="text-md text-gray-700 uppercase bg-gray-50 ">
                                 <tr>
-                                    <th></th>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
-                                    <th>
-                                        <button className="btn-primary" onClick={emptyCart}>
+                                    <th scope="col" className="py-3 px-6"></th>
+                                    <th scope="col" className="py-3 px-6">
+                                        Producto
+                                    </th>
+                                    <th scope="col" className="py-3 px-6">
+                                        Precio
+                                    </th>
+                                    <th scope="col" className="py-3 px-6">
+                                        Cantidad
+                                    </th>
+                                    <th scope="col" className="py-3 px-6">
+                                        <button
+                                            className="button-primary bg-red-400/90 hover:bg-red-400 whitespace-nowrap"
+                                            onClick={emptyCart}
+                                        >
                                             Limpiar carrito
                                         </button>
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="lg:text-lg">
                                 {items.map((elemento, index) => {
                                     return (
                                         <React.Fragment key={index}>
-                                            <tr className="shadow-lg">
-                                                <td>
+                                            <tr className="bg-white border-b">
+                                                <td
+                                                    scope="row"
+                                                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
+                                                >
                                                     <img
-                                                        className="h-40"
+                                                        className="min-h-40 max-h-44"
                                                         src={elemento.image}
                                                         alt={elemento.name}
                                                     />
                                                 </td>
-                                                <td>{elemento.name}</td>
-                                                <td>
-                                                    USD$<b>{elemento.price}</b>
+                                                <td
+                                                    scope="row"
+                                                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
+                                                >
+                                                    {elemento.name}
                                                 </td>
-                                                <td>
+                                                <td className="py-4 px-6">
+                                                    USD$
+                                                    <span className="text-neutral-800/90 font-bold">
+                                                        {elemento.price}
+                                                    </span>
+                                                </td>
+                                                <td className="py-4 px-6 text-center">
                                                     <button
-                                                        className="ml-2, p-1 rounded-[50%]"
+                                                        className="p-1 rounded-full hover:bg-neutral-900/10"
                                                         onClick={() =>
                                                             updateItemQuantity(
                                                                 elemento.id,
@@ -81,9 +98,11 @@ export default function CartPage() {
                                                     >
                                                         <i className="fa-solid fa-minus"></i>
                                                     </button>
-                                                    {elemento.quantity}
+                                                    <span className="mx-4">
+                                                        {elemento.quantity}
+                                                    </span>
                                                     <button
-                                                        className="ml-2, p-1 rounded-[50%]"
+                                                        className="p-1 rounded-full hover:bg-neutral-900/10"
                                                         onClick={() =>
                                                             updateItemQuantity(
                                                                 elemento.id,
@@ -96,7 +115,7 @@ export default function CartPage() {
                                                 </td>
                                                 <td>
                                                     <button
-                                                        className="btn-primary bg-red-500"
+                                                        className="button-primary bg-red-600/80 hover:bg-red-600/90 px-7 lg:px-10 py-1"
                                                         onClick={() => removeItem(elemento.id)}
                                                     >
                                                         <i className="fa-solid fa-xmark"></i>
@@ -109,15 +128,21 @@ export default function CartPage() {
                             </tbody>
                         </table>
                     </div>
-                    <div container>
+                    <div>
                         <div className="flex justify-end">
                             <div className="m-6 text-center w-64">
-                                <span className="text-2xl">
-                                    USD$<b>{cartTotal}</b>
+                                <span className="text-2xl flex justify-center gap-3">
+                                    USD$
+                                    <span className="text-neutral-800/90 font-bold">
+                                        {cartTotal}
+                                    </span>
                                 </span>
                                 <hr />
-                                <div>
-                                    <button className="btn-primary" onClick={showAlert}>
+                                <div className="mt-3">
+                                    <button
+                                        className="button-primary bg-indigo-500/90 hover:bg-indigo-500 px-7 lg:px-10"
+                                        onClick={showAlert}
+                                    >
                                         Comprar
                                     </button>
                                 </div>

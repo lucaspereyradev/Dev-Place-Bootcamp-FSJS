@@ -10,7 +10,9 @@ export default function RegisterPage() {
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [status, setStatus] = useState(null);
+
+    const [message, setMessage] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,9 +25,17 @@ export default function RegisterPage() {
             };
 
             const resp = await axios.post(url, bodyFormData);
-            setStatus(resp.status);
+
+            setMessage(resp.data.message);
+
+            setTimeout(() => {
+                window.location.href = '/login';
+            }, 2000);
         } catch (error) {
-            setStatus(error.response.status);
+            setErrorMessage('Por favor revisa los datos ingresados.');
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 7000);
         }
     };
 
@@ -55,6 +65,12 @@ export default function RegisterPage() {
                 <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <div className="flex flex-col mt-24 gap-3 shadow-lg py-16 px-12 rounded-lg">
                         <h3 className="text-center font-bold text-lg">Registrarse</h3>
+                        {errorMessage && (
+                            <h3 className="text-center py-2 rounded-lg text-white w-full bg-red-500">
+                                {errorMessage}
+                            </h3>
+                        )}
+                        {message && showAlertRegisted()}
                         <input
                             className="w-full rounded-lg"
                             type="text"
@@ -87,7 +103,6 @@ export default function RegisterPage() {
                         <button
                             className="button-primary bg-indigo-600 hover:bg-indigo-600/80"
                             type="submit"
-                            onClick={() => (status == 200 ? showAlertRegisted() : showAlertError())}
                         >
                             Crear cuenta
                         </button>
